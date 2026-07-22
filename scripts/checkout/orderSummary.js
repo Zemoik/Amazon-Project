@@ -3,6 +3,7 @@ import { cart, removeFromCart, updateDeliveryOption } from '../../data/cart.js';
 import { deliveryOptions, getDeliveryOption } from '../../data/deliveryOptions.js';
 import { products, getProduct } from '../../data/products.js';
 import { formatCurrency } from '../utils/money.js';
+import { renderPaymentSummary } from './paymentSummary.js';
 
 
 export function renderOrderSummary(){
@@ -110,6 +111,7 @@ export function renderOrderSummary(){
         link.addEventListener('click', ()=>{
             const productId = link.dataset.productId;
             removeFromCart(productId);
+            renderPaymentSummary();
 
             const contanier = document.querySelector(`.js-cart-item-container-${productId}`);
             contanier.remove();
@@ -121,6 +123,7 @@ export function renderOrderSummary(){
             const {productId, deliveryOptionId} = element.dataset;
             updateDeliveryOption(productId, deliveryOptionId);
             renderOrderSummary();
+            renderPaymentSummary();
         });
     });
 }
