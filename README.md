@@ -1,4 +1,4 @@
-# 🛒 Amazon Clone
+# Amazon Clone
 
 A multi-page Amazon homepage clone built with HTML, CSS, and vanilla JavaScript 
 — featuring a dynamic product grid loaded from JSON, a persistent shopping cart, 
